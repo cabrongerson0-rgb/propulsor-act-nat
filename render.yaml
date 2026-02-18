@@ -2,6 +2,7 @@ services:
   - type: web
     name: nequi-credito-nat
     env: node
+    rootDirectory: .
     buildCommand: yarn
     startCommand: yarn start
     envVars:
