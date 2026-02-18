@@ -1,0 +1,11 @@
+{
+  "name": "nequi-credito-site",
+  "version": "1.0.0",
+  "description": "Static site deployment",
+  "scripts": {
+    "start": "serve cloned-site -l $PORT"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
