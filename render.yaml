@@ -3,13 +3,8 @@ services:
     name: nequi-credito-nat
     env: node
     region: oregon
-    plan: free
-    rootDirectory: .
-    buildCommand: yarn install --production=false
-    startCommand: yarn start
-    healthCheckPath: /
+    buildCommand: npm install
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
-      - key: NODE_VERSION
-        value: 18.17.0
