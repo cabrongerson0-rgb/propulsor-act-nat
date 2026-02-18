@@ -2,12 +2,12 @@
   "name": "nequi-credito-site",
   "version": "1.0.0",
   "description": "Static site deployment",
-  "main": "server.js",
+  "main": "index.js",
   "engines": {
     "node": ">=18.0.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "serve": "^14.2.1"
