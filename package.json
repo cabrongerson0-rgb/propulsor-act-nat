@@ -2,7 +2,6 @@
   "name": "nequi-credito-site",
   "version": "1.0.0",
   "description": "Static site deployment",
-  "main": "index.js",
   "engines": {
     "node": "18.17.0",
     "yarn": "1.x"
@@ -13,5 +12,6 @@
   },
   "dependencies": {
     "serve": "^14.2.1"
-  }
+  },
+  "license": "MIT"
 }
