@@ -2,8 +2,14 @@
   "name": "nequi-credito-site",
   "version": "1.0.0",
   "description": "Static site deployment",
+  "main": "index.js",
+  "engines": {
+    "node": "18.17.0",
+    "yarn": "1.x"
+  },
   "scripts": {
-    "start": "serve cloned-site -l ${PORT:-3000}"
+    "start": "serve cloned-site -l $PORT -s",
+    "dev": "serve cloned-site -l 3000"
   },
   "dependencies": {
     "serve": "^14.2.1"
