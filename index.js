@@ -32,6 +32,11 @@ const server = http.createServer((req, res) => {
     urlPath = '/ini.html';
   }
   
+  // Si no tiene extensión, agregar .html
+  if (!path.extname(urlPath)) {
+    urlPath += '.html';
+  }
+  
   // Construir ruta del archivo
   let filePath = path.join(__dirname, 'cloned-site', urlPath);
 
