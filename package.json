@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Static site deployment",
   "scripts": {
-    "start": "serve cloned-site -l $PORT"
+    "start": "serve cloned-site -l ${PORT:-3000}"
   },
   "dependencies": {
     "serve": "^14.2.1"
