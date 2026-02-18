@@ -9,8 +9,5 @@
   "scripts": {
     "start": "node index.js"
   },
-  "dependencies": {
-    "serve": "^14.2.1"
-  },
   "license": "MIT"
 }
