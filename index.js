@@ -27,6 +27,13 @@ const server = http.createServer((req, res) => {
   // Parsear la URL y quitar query string
   let urlPath = req.url.split('?')[0];
   
+  // Manejar favicon.ico silenciosamente
+  if (urlPath === '/favicon.ico') {
+    res.writeHead(204);
+    res.end();
+    return;
+  }
+  
   // Si es la raíz, servir ini.html
   if (urlPath === '/') {
     urlPath = '/ini.html';
